@@ -5,30 +5,30 @@
 class SwarmBee < Formula
   desc "Ethereum Swarm node"
   homepage "https://swarm.ethereum.org/"
-  version "10.0.1"
+  version "10.0.2"
   depends_on :macos
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/vandot/bee/releases/download/v10.0.1/bee-darwin-amd64.tar.gz"
-      sha256 "e638c6e06930f6a334f7be019ed23ca8c8b7042bbb5eb8c5583d89ec8d3a80da"
+      url "https://github.com/vandot/bee/releases/download/v10.0.2/bee-darwin-amd64.tar.gz"
+      sha256 "8695c82036042544e16bd1b9a9ac6dbed8f822888255e4080a7e2724b75d9247"
 
       def install
         (etc/"swarm-bee").mkpath
         (var/"lib/swarm-bee").mkpath
-        bin.install ["bee", "packaging/homebrew/bee-get-addr"]
-        etc.install "packaging/homebrew/bee.yaml" => "swarm-bee/bee.yaml" unless File.exists? etc/"swarm-bee/bee.yaml"
+        bin.install ["bee", "bee-get-addr"]
+        etc.install "bee.yaml" => "swarm-bee/bee.yaml" unless File.exists? etc/"swarm-bee/bee.yaml"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/vandot/bee/releases/download/v10.0.1/bee-darwin-arm64.tar.gz"
-      sha256 "d00525c63437bec1d7bf7e237dd4643d164c34f615efc37378808994f6552aeb"
+      url "https://github.com/vandot/bee/releases/download/v10.0.2/bee-darwin-arm64.tar.gz"
+      sha256 "d279e6c52a6e83e1b5c3bd8a2372e5de9a88480e972a88a75751ad134e8ce54b"
 
       def install
         (etc/"swarm-bee").mkpath
         (var/"lib/swarm-bee").mkpath
-        bin.install ["bee", "packaging/homebrew/bee-get-addr"]
-        etc.install "packaging/homebrew/bee.yaml" => "swarm-bee/bee.yaml" unless File.exists? etc/"swarm-bee/bee.yaml"
+        bin.install ["bee", "bee-get-addr"]
+        etc.install "bee.yaml" => "swarm-bee/bee.yaml" unless File.exists? etc/"swarm-bee/bee.yaml"
       end
     end
   end
@@ -77,8 +77,6 @@ system(bin/"bee", "init", "--config", etc/"swarm-bee/bee.yaml", ">/dev/null", "2
   </array>
   <key>RunAtLoad</key>
   <true/>
-  <key>WorkingDirectory</key>
-  <string>/usr/local</string>
   <key>StandardOutPath</key>
   <string>#{var}/log/swarm-bee/bee.log</string>
   <key>StandardErrorPath</key>
