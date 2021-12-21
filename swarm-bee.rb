@@ -5,13 +5,13 @@
 class SwarmBee < Formula
   desc "Ethereum Swarm node"
   homepage "https://swarm.ethereum.org/"
-  version "1.1.3"
+  version "10.0.1"
   depends_on :macos
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/vandot/bee/releases/download/v1.1.3/bee-darwin-arm64.tar.gz"
-      sha256 "74c3cdd59ac3d62f9acbe14f68d05e2d33d39435e9949ed8336645439757eeda"
+    if Hardware::CPU.intel?
+      url "https://github.com/vandot/bee/releases/download/v10.0.1/bee-darwin-amd64.tar.gz"
+      sha256 "e638c6e06930f6a334f7be019ed23ca8c8b7042bbb5eb8c5583d89ec8d3a80da"
 
       def install
         (etc/"swarm-bee").mkpath
@@ -20,9 +20,9 @@ class SwarmBee < Formula
         etc.install "packaging/homebrew/bee.yaml" => "swarm-bee/bee.yaml" unless File.exists? etc/"swarm-bee/bee.yaml"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/vandot/bee/releases/download/v1.1.3/bee-darwin-amd64.tar.gz"
-      sha256 "c64e022d1ec8e67249314a08f9b4d75ee7a32d1592435458c7b7f8717929b958"
+    if Hardware::CPU.arm?
+      url "https://github.com/vandot/bee/releases/download/v10.0.1/bee-darwin-arm64.tar.gz"
+      sha256 "d00525c63437bec1d7bf7e237dd4643d164c34f615efc37378808994f6552aeb"
 
       def install
         (etc/"swarm-bee").mkpath
@@ -45,7 +45,9 @@ system(bin/"bee", "init", "--config", etc/"swarm-bee/bee.yaml", ">/dev/null", "2
     Logs:   #{var}/log/swarm-bee/bee.log
     Config: #{etc}/swarm-bee/bee.yaml
 
-    Bee has SWAP enabled and by default is using slock.it goerli ethereum endpoint.
+    Bee requires an Ethereum endpoint to function. By default is using ws://localhost:8546 ethereum endpoint.
+    If needed obtain a free Infura account and set:
+    swap-endpoint: wss://goerli.infura.io/ws/v3/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     It is recommended to use external signer with bee.
     Check documentation for more info:
     - SWAP https://docs.ethswarm.org/docs/installation/manual#swap-bandwidth-incentives
