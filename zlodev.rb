@@ -2,28 +2,28 @@
 class Zlodev < Formula
   desc "Local HTTPS reverse proxy with custom DNS and a terminal UI"
   homepage "https://github.com/vandot/zlodev"
-  version "0.7.1"
+  version "0.8.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/vandot/zlodev/releases/download/v0.7.1/zlodev-darwin-arm64.tar.gz"
-      sha256 "41ae2383bd627997e2ca4dc30cbbcff55a8e81c1dad38674c70de0851e16dd35"
+      url "https://github.com/vandot/zlodev/releases/download/v0.8.0/zlodev-darwin-arm64.tar.gz"
+      sha256 "e61037a2fcc9c7dbf3af95b8d68d65cbde420118c3226c088650213958da5290"
     end
     on_intel do
-      url "https://github.com/vandot/zlodev/releases/download/v0.7.1/zlodev-darwin-amd64.tar.gz"
-      sha256 "55cc294f2696548ad1c914c8d0c46dd90caee51971b22f0905e4955ad711ddf2"
+      url "https://github.com/vandot/zlodev/releases/download/v0.8.0/zlodev-darwin-amd64.tar.gz"
+      sha256 "6d032ec1384d14684624addb05cb306c7a5ba36da5473f5a69de57973baf93ee"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/vandot/zlodev/releases/download/v0.7.1/zlodev-linux-arm64.tar.gz"
-      sha256 "af50bcc77d3d5c5e6ba586637220c78464f569b403b2788d76b608b23a7f7fe9"
+      url "https://github.com/vandot/zlodev/releases/download/v0.8.0/zlodev-linux-arm64.tar.gz"
+      sha256 "78a8d60d989e387c5f88006459d84407fb267c671248142bc8b2b67f7ef04b8a"
     end
     on_intel do
-      url "https://github.com/vandot/zlodev/releases/download/v0.7.1/zlodev-linux-amd64.tar.gz"
-      sha256 "780ce97a98e35a536143d030fbb4fcef55506aec9164514a3b00257e857e80c8"
+      url "https://github.com/vandot/zlodev/releases/download/v0.8.0/zlodev-linux-amd64.tar.gz"
+      sha256 "8033b4c2e79ef0311d090da8de5db2fab9486f098d4a2f7e9022d76297266a4c"
     end
   end
 
@@ -33,6 +33,7 @@ class Zlodev < Formula
 
   def caveats
     s = "Run `zlodev install` once to set up the CA and DNS.\n"
+    s += "zlodev start --share needs cloudflared: brew install cloudflared\n"
     on_linux do
       s += <<~EOS
         To bind ports 53, 80 and 443 without root, run:
