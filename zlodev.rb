@@ -2,28 +2,28 @@
 class Zlodev < Formula
   desc "Local HTTPS reverse proxy with custom DNS and a terminal UI"
   homepage "https://github.com/vandot/zlodev"
-  version "0.8.0"
+  version "0.8.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/vandot/zlodev/releases/download/v0.8.0/zlodev-darwin-arm64.tar.gz"
-      sha256 "e61037a2fcc9c7dbf3af95b8d68d65cbde420118c3226c088650213958da5290"
+      url "https://github.com/vandot/zlodev/releases/download/v0.8.1/zlodev-darwin-arm64.tar.gz"
+      sha256 "128fd63fb4100f9812d1ce02acfdc26a0edee9210172a0933e72913156b1aa26"
     end
     on_intel do
-      url "https://github.com/vandot/zlodev/releases/download/v0.8.0/zlodev-darwin-amd64.tar.gz"
-      sha256 "6d032ec1384d14684624addb05cb306c7a5ba36da5473f5a69de57973baf93ee"
+      url "https://github.com/vandot/zlodev/releases/download/v0.8.1/zlodev-darwin-amd64.tar.gz"
+      sha256 "068a2b76b8a6a00819f4f583f05d9657ec2acf8ac04ebf7edc00d7d6cab1bbb6"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/vandot/zlodev/releases/download/v0.8.0/zlodev-linux-arm64.tar.gz"
-      sha256 "78a8d60d989e387c5f88006459d84407fb267c671248142bc8b2b67f7ef04b8a"
+      url "https://github.com/vandot/zlodev/releases/download/v0.8.1/zlodev-linux-arm64.tar.gz"
+      sha256 "24f5dfbb27fe98972d5e1ba07c4c0337625d014e98765f52edb9ee7653bd21bb"
     end
     on_intel do
-      url "https://github.com/vandot/zlodev/releases/download/v0.8.0/zlodev-linux-amd64.tar.gz"
-      sha256 "8033b4c2e79ef0311d090da8de5db2fab9486f098d4a2f7e9022d76297266a4c"
+      url "https://github.com/vandot/zlodev/releases/download/v0.8.1/zlodev-linux-amd64.tar.gz"
+      sha256 "f031ec8ecf35d5ce459cad4cfa2592ff462c7f4b093f161dbfeb161b66c588e2"
     end
   end
 
